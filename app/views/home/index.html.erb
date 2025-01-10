@@ -1,0 +1,22 @@
+<% content_for :sidebar_content do %>
+    <div class="flex flex-col space-y-1">
+    <p class='font-bold'>My lists</p>
+      <% @lists.each do |list| %>
+        <%= link_to list.title, list_path(list), class: 'text-left w-full rounded hover:bg-base-100 text-md py-1 px-2' %>
+      <% end %>
+  </div>
+<% end %>
+
+<% content_for :main_content do %>
+  <div class="min-h-screen flex flex-col justify-start items-start p-6">
+    <h1 class="text-4xl font-bold mb-4">Welcome, <%= current_user.username %>!</h1>
+    <p class="text-lg mb-2">
+      Here you can manage all your tasks efficiently. Use the side menu to create and view your lists.
+    </p>
+    <p class="text-lg mb-2">
+      Stay organized and keep track of your daily activities with ease.
+    </p>
+  </div>
+<% end %>
+
+<%= render 'templates/sidebar_template' %>

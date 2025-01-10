@@ -3,7 +3,6 @@ class ListsController < ApplicationController
 
   def index
     @lists = current_user.lists
-    @list = List.last
   end
 
   def show
@@ -13,7 +12,7 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.build(list_params)
     if @list.save
-      redirect_to lists_path, notice: "List created successfully"
+      redirect_to root_path, notice: "List created successfully"
     else
       render :index
     end
@@ -21,7 +20,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to lists_path, notice: "List deleted successfully"
+    redirect_to root_path, notice: "List deleted successfully"
   end
 
   private

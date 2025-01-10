@@ -16,12 +16,14 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @lists = current_user.lists
+  end
 
   def update
     if @item.update(item_params)
       respond_to do |format|
-        format.turbo_stream
+        format.turbo_stream { }
         format.html { redirect_to list_path(@list), notice: "Item was successfully updated." }
       end
     else

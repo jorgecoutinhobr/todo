@@ -14,9 +14,9 @@
     <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 flex flex-col justify-between">
       <!-- TOP -->
       <div>
-        <h2 class="text-2xl font-bold text-center mb-4">
+        <a href="<%= root_path %>" class="text-2xl font-bold text-center mb-4 block">
           <%= current_user.username.capitalize %>'s Todo Space
-        </h2>
+        </a>
 
         <button class="btn btn-neutral flex items-center text-md mb-1 font-semibold hover:underline" onclick="my_modal_2.showModal()">
          <span class='mr-2'>Add new List</span>

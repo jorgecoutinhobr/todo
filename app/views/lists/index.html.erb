@@ -7,9 +7,6 @@
   </div>
 <% end %>
 
-<%= content_for :main_content do %>
-  <%= render 'lists/list', list: @list if @list.present?%>
-<% end %>
 
 
 <%= render 'templates/sidebar_template' %>
