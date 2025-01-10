@@ -1,6 +1,5 @@
-<%= turbo_frame_tag "new_item_form" do %>
-  <%= form_with(model: [list, list.items.build], local: false, html: { class: "space-y-4" }) do |form| %>
-    <div class="form-control">
+<%= form_with(model: [@list, @item], local: true) do |form| %>
+  <div class="form-control">
       <%= form.label :title, class: "label" %>
       <%= form.text_field :title, class: "input input-bordered", required: true %>
     </div>
@@ -30,5 +29,4 @@
     <div class="form-control mt-6">
       <%= form.submit "Add Item", class: "btn btn-primary" %>
     </div>
-  <% end %>
 <% end %>

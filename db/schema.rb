@@ -17,12 +17,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_10_011343) do
   create_table "items", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
-    t.string "urgency"
+    t.integer "priority", default: 0
+    t.integer "status", default: 0
     t.date "date"
     t.bigint "list_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["list_id"], name: "index_items_on_list_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -48,5 +51,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_10_011343) do
   end
 
   add_foreign_key "items", "lists"
+  add_foreign_key "items", "users"
   add_foreign_key "lists", "users"
 end

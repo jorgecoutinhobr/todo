@@ -1,24 +1,53 @@
 class ItemsController < ApplicationController
+  before_action :set_list, only: %i[create edit update destroy]
+  before_action :set_item, only: %i[edit update destroy]
+
   def create
-    @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
+    @item.user = current_user
 
     if @item.save
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to @list, notice: 'Item was successfully created.' }
+        format.html { redirect_to show_list_path(@list), notice: "Item was successfully created." }
       end
     else
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.replace("new_item_form", partial: "items/form", locals: { list: @list, item: @item }) }
-        format.html {  redirect_to @list }
+        format.html {  redirect_to show_list_path(@list) }
       end
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @item.update(item_params)
+      redirect_to show_list_path(@list), notice: "Item was successfully updated."
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @item.destroy
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to show_list_path(@list), notice: "Item was successfully destroyed." }
     end
   end
 
   private
 
+  def set_list
+    @list = List.find(params[:list_id])
+  end
+
+  def set_item
+    @item = @list.items.find(params[:id])
+  end
+
   def item_params
-    params.require(:item).permit(:title, :description)
+    params.require(:item).permit(:title, :description, :priority, :date, :status)
   end
 end

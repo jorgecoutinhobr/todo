@@ -1,0 +1,24 @@
+<div class="drawer drawer-end">
+  <input id="my-drawer-<%= item.id %>" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content">
+    <!-- Page content here -->
+    <label for="my-drawer-<%= item.id %>" class="drawer-button btn btn-primary">Full details</label>
+  </div>
+  <div class="drawer-side">
+    <label for="my-drawer-<%= item.id %>" aria-label="close sidebar" class="drawer-overlay"></label>
+    <ul class="menu bg-base-200 text-base-content min-h-full w-1/3 p-4 space-y-4">
+      <!-- Sidebar content here -->
+      <li>
+        <h2 class="text-2xl font-bold"><%= item.title %></h2>
+        <p class=""><%= item.description %></p>
+        <p class=""><strong>Priority:</strong> <%= item.priority.humanize %></p>
+        <p class=""><strong>Status:</strong> <%= item.status.humanize %></p>
+        <p class=""><strong>Date:</strong> <%= item.date %></p>
+      </li>
+      <li>
+        <%= link_to 'Edit', edit_list_item_path(item.list, item, list: list), class: 'btn btn-sm btn-outline mr-2' %>
+        <%#= link_to 'Delete', list_item_path(item.list, item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-error' %>
+      </li>
+    </ul>
+  </div>
+</div>
