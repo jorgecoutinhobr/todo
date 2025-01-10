@@ -1,0 +1,15 @@
+<%= content_for :sidebar_content do %>
+  <div class="flex flex-col space-y-1">
+    <p class='font-bold'>My lists</p>
+      <% @lists.each do |list| %>
+        <%= link_to list.title, list_path(list), class: 'text-left w-full rounded hover:bg-base-100 text-md py-1 px-2' %>
+      <% end %>
+  </div>
+<% end %>
+
+<%= content_for :main_content do %>
+  <%= render 'lists/list', list: @list if @list.present?%>
+<% end %>
+
+
+<%= render 'templates/sidebar_template' %>

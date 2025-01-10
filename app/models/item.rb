@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :user
 
   enum :priority, [ :minimal, :normal, :critical ]
-  enum :status, [ :pending, :in_progress, :completed ]
+  enum :status, [ :pending, :completed ]
 
   validates :title, presence: true
 end

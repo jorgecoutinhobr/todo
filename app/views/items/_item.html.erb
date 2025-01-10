@@ -1,11 +1,11 @@
-<!-- filepath: /home/jorge/todo-final/app/views/items/_item.html.erb -->
 <div id="item_<%= item.id %>" class='flex items-center justify-between p-4 bg-base-200 rounded-lg shadow-sm w-1/2 mb-2 border-l-8 <%= item_border_color(item) %>'>
   <div>
     <h2 class="text-xl font-semibold"><%= item.title %></h2>
     <p class="text-gray-600"><%= truncate(item.description, length: 100) %></p>
   </div>
   <div>
-    <%= button_to 'Complete', '#', method: :patch, class: 'btn btn-sm btn-outline mr-2' %>
+    <%= check_box_tag 'Completed', true, item.completed! ,class: 'btn btn-sm btn-outline mr-2',
+      data: { controller: 'checkbox', action: 'change->checkbox#update', checkbox_url_value: url_for([item.list, item])  } %>
     <%= link_to 'Delete', list_item_path(item.list, item) , data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }, class: 'btn btn-sm btn-error' %>
     <%= render 'items/menu', item: item, list: item.list %>
   </div>

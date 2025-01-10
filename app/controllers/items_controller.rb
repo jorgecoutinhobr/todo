@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
         format.html { redirect_to show_list_path(@list), notice: "Item was successfully created." }
       end
     else
-      redirect_to show_list_path(@list)
+      redirect_to list_path(@list)
     end
   end
 
@@ -20,7 +20,10 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to show_list_path(@list), notice: "Item was successfully updated."
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to list_path(@list), notice: "Item was successfully updated." }
+      end
     else
       render :edit
     end
@@ -30,7 +33,7 @@ class ItemsController < ApplicationController
     @item.destroy
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to show_list_path(@list), notice: "Item was successfully destroyed." }
+      format.html { redirect_to list_path(@list), notice: "Item was successfully destroyed." }
     end
   end
 

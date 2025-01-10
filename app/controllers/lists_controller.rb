@@ -1,18 +1,34 @@
 class ListsController < ApplicationController
-  def create
-    @list = List.new(list_params)
-    @list.user = current_user
+  before_action :set_list, only: [ :show, :destroy ]
 
+  def index
+    @lists = current_user.lists
+    @list = List.last
+  end
+
+  def show
+    @lists = current_user.lists
+  end
+
+  def create
+    @list = current_user.lists.build(list_params)
     if @list.save
-      flash[:notice] = "List created successfully"
-      redirect_to root_path
+      redirect_to lists_path, notice: "List created successfully"
     else
-      flash[:Alert] = "List could not be created"
-      redirect_to root_path
+      render :index
     end
   end
 
+  def destroy
+    @list.destroy
+    redirect_to lists_path, notice: "List deleted successfully"
+  end
+
   private
+
+  def set_list
+    @list = current_user.lists.find(params[:id])
+  end
 
   def list_params
     params.require(:list).permit(:title)
