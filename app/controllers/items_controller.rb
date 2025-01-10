@@ -12,10 +12,7 @@ class ItemsController < ApplicationController
         format.html { redirect_to show_list_path(@list), notice: "Item was successfully created." }
       end
     else
-      respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.replace("new_item_form", partial: "items/form", locals: { list: @list, item: @item }) }
-        format.html {  redirect_to show_list_path(@list) }
-      end
+      redirect_to show_list_path(@list)
     end
   end
 
@@ -40,7 +37,7 @@ class ItemsController < ApplicationController
   private
 
   def set_list
-    @list = List.find(params[:list_id])
+    @list = current_user.lists.find(params[:list_id])
   end
 
   def set_item

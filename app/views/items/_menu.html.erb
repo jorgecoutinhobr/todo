@@ -10,7 +10,9 @@
       <!-- Sidebar content here -->
       <li>
         <h2 class="text-2xl font-bold"><%= item.title %></h2>
-        <p class=""><%= item.description %></p>
+        <p class="">
+          <span><strong>Description:</strong> <br/> <%= item.description %><span>
+        </p>
         <p class=""><strong>Priority:</strong> <%= item.priority.humanize %></p>
         <p class=""><strong>Status:</strong> <%= item.status.humanize %></p>
         <p class=""><strong>Date:</strong> <%= item.date %></p>
