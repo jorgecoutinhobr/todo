@@ -18,7 +18,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_10_011343) do
     t.string "title", null: false
     t.text "description"
     t.integer "priority", default: 0
-    t.integer "status", default: 0
+    t.boolean "completed", default: false
     t.date "date"
     t.bigint "list_id", null: false
     t.bigint "user_id", null: false

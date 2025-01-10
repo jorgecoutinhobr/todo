@@ -8,12 +8,12 @@ export default class extends Controller {
   async update(e) {
     let checkbox = e.target
     let checked = checkbox.checked
-    console.log("update", checked)
     
     await put(this.urlValue, {
       body: {
         completed: checked
-      }
+      },
+      responseKind: "turbo-stream"
     })
   }
 }

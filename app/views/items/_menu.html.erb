@@ -2,7 +2,7 @@
   <input id="my-drawer-<%= item.id %>" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content">
     <!-- Page content here -->
-    <label for="my-drawer-<%= item.id %>" class="drawer-button btn btn-primary">Full details</label>
+    <label for="my-drawer-<%= item.id %>" class="drawer-button btn btn-sm btn-primary">Full details</label>
   </div>
   <div class="drawer-side">
     <label for="my-drawer-<%= item.id %>" aria-label="close sidebar" class="drawer-overlay"></label>
@@ -14,7 +14,6 @@
           <span><strong>Description:</strong> <br/> <%= item.description %><span>
         </p>
         <p class=""><strong>Priority:</strong> <%= item.priority.humanize %></p>
-        <p class=""><strong>Status:</strong> <%= item.status.humanize %></p>
         <p class=""><strong>Date:</strong> <%= item.date %></p>
       </li>
       <li>

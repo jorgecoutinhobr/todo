@@ -20,11 +20,6 @@
       <%= form.label :priority, class: "label" %>
       <%= form.select :priority, Item.priorities.keys.map { |priority| [priority.humanize, priority] }, {}, class: "select select-bordered w-full" %>
       </div>
-
-      <div class="form-control w-1/2">
-      <%= form.label :status, class: "label" %>
-      <%= form.select :status, Item.statuses.keys.map { |status| [status.humanize, status] }, {}, class: "select select-bordered w-full" %>
-      </div>
     </div>
 
     <div class="form-control mt-6">
