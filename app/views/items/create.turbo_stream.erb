@@ -1,0 +1,7 @@
+<%= turbo_stream.append "items" do %>
+  <%= render @item %>
+<% end %>
+
+<%= turbo_stream.replace "new_item_form" do %>
+  <%= render 'items/form', list: @list %>
+<% end %>
