@@ -10,15 +10,15 @@
       <%= form.text_area :description, class: "input input-bordered h-32" %>
     </div>  
 
-    <div class="form-control">
-      <%= form.label :date, class: "label" %>
-      <%= form.date_field :date, class: "input input-bordered" %>
-    </div>
-
     <div class="flex space-x-2">
       <div class="form-control w-1/2">
-      <%= form.label :priority, class: "label" %>
-      <%= form.select :priority, Item.priorities.keys.map { |priority| [priority.humanize, priority] }, {}, class: "select select-bordered w-full" %>
+        <%= form.label :priority, class: "label" %>
+        <%= form.select :priority, Item.priorities.keys.map { |priority| [priority.humanize, priority] }, {}, class: "select select-bordered w-full" %>
+      </div>
+
+      <div class="form-control w-1/2">
+        <%= form.label :date, class: "label" %>
+        <%= form.date_field :date, class: "input input-bordered" %>
       </div>
     </div>
 
