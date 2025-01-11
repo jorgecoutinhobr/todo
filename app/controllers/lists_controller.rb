@@ -1,10 +1,8 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [ :show, :destroy, :edit, :update ]
+  before_action :set_list, only: [ :show, :destroy, :update ]
   before_action :set_lists, only: [ :show ]
 
   def show; end
-
-  def edit; end
 
   def update
     if @list.update(list_params)
