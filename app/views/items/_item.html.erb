@@ -8,8 +8,11 @@
       <%= check_box_tag 'Completed', true, item.completed, class: 'checkbox', method: :put, 
       data: { controller: 'checkbox', action: 'change->checkbox#update', checkbox_url_value: url_for([item.list, item])  } %>
 
-      <%= link_to 'Delete', list_item_path(item.list, item) , data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }, class: 'btn btn-sm btn-error' %>
       <%= render 'items/menu', item: item, list: item.list %>
+      
+      <%= link_to list_item_path(item.list, item) , data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }, class: 'btn btn-sm btn-error' do %>
+        <%=  image_tag "delete.svg" %>
+      <% end %>
     </div>
   </div>
 </div>
