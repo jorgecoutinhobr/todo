@@ -7,8 +7,8 @@
     <div class="flex items-center space-x-4">
       <%= check_box_tag 'Completed', true, item.completed, class: 'checkbox checkbox-lg', method: :put, 
           data: { controller: 'checkbox', action: 'change->checkbox#update', checkbox_url_value: url_for([item.list, item])  } %>
-      <%= render 'items/menu', item: item, list: item.list %>
-
+     
+     <%= render 'items/menu', item: item, list: item.list %>
     </div>
   </div>
 </div>
