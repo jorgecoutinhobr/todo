@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  root "home#index"
   devise_for :users
 
-  # root "lists#index"
+  root "home#index"
 
-  resources :lists, only: [ :index, :show, :create, :destroy ] do
+  resources :lists, only: [ :show, :create, :destroy, :edit, :update ] do
     resources :items, only: [ :create, :destroy, :edit, :update ]
   end
 end
