@@ -3,7 +3,7 @@
 <% end %>
 
 <%= content_for :main_content do %>
-  <%= render 'lists/list', list: @list if @list.present? %>
+  <%= render 'lists/list', list: @list %>
 <% end %>
 
 <%= render 'templates/sidebar_template' %>

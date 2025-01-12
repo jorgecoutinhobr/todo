@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [ :show, :destroy, :update ]
-  before_action :set_lists, only: [ :show ]
+  before_action :set_list, only: %i[show destroy update]
+  before_action :set_lists, only: %i[show]
 
   def show; end
 

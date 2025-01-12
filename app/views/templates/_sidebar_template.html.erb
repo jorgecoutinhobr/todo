@@ -35,7 +35,7 @@
         <div class="dropdown dropdown-top dropdown-end w-full">
           <div tabindex="0" role="button" class="btn btn-primary w-full">Settings</div>
           <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-full p-2 shadow">
-            <li><%= link_to "Edit Account",  edit_user_registration_path %></li>
+            <li><%= link_to "Edit Account", edit_user_registration_path %></li>
             <li><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
           </ul>
         </div>
@@ -48,4 +48,4 @@
 </div>
 
 <!-- Modal -->
-<%= render 'lists/list_modal' %>
+<%= render 'lists/create_modal' %>

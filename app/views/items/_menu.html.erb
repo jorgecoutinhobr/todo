@@ -16,7 +16,7 @@
           <span><strong>Description:</strong> <br/> <%= item.description %><span>
         </p>
         <p class=""><strong>Priority:</strong> <%= item.priority.humanize %></p>
-        <p class=""><strong>Date:</strong> <%= item.date %></p>
+        <p class=""><strong>Date:</strong> <%= item.date.strftime('%d/%m/%Y') if item.date.present? %></p>
       </li>
       <li>
         <%= link_to 'Edit', edit_list_item_path(item.list, item, list: list), class: 'btn btn-sm btn-outline mr-2 mb-2 w-1/2' %>
