@@ -8,14 +8,9 @@
   </div>
 </div>
 <div class="p-6 space-y-4">
-  <div id="items">
-    <%= turbo_stream_from "items" %>
-      <% list.items.each do |item| %>
-        <%= render item %>
-      <% end %>
 
+  <%= render 'items/items', list: list %>
 
-  </div>
   <button class="btn" onclick="my_modal_1.showModal()">
     <span class='mr-2'>Add new item</span>
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

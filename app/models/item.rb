@@ -5,4 +5,6 @@ class Item < ApplicationRecord
   enum :priority, [ :minimal, :normal, :critical ]
 
   validates :title, presence: true
+
+  default_scope -> { order(completed: :asc, priority: :desc) }
 end

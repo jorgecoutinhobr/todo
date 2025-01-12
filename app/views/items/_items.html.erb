@@ -1,0 +1,6 @@
+<div id="items">
+  <%= turbo_stream_from "items" %>
+    <% list.items.each do |item| %>
+      <%= render item %>
+    <% end %>
+</div>
