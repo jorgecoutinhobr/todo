@@ -37,3 +37,5 @@ end
 
 gem "devise", "~> 4.9"
 gem "randamu"
+
+gem "dockerfile-rails", ">= 1.7", :group => :development
