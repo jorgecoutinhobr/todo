@@ -1,24 +1,42 @@
-# README
+## Pré-requisitos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Ruby 3.3.0
+- Rails 8.0.1
+- PostgreSQL
 
-Things you may want to cover:
+## Instalação
 
-* Ruby version
+1. Clone o repositório:
 
-* System dependencies
+    ```sh
+    git clone https://github.com/jorgecoutinhobr/todo.git
+    cd todo
+    ```
 
-* Configuration
+2. Instale as dependências:
 
-* Database creation
+    ```sh
+    bundle install
+    ```
 
-* Database initialization
+3. Configure o banco de dados:
 
-* How to run the test suite
+    ```sh
+    rails db:create
+    rails db:migrate
+    rails db:seed
+    ```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Execução
 
-* Deployment instructions
+1. Inicie o servidor Rails:
 
-* ...
+    ```sh
+    rails server
+    ```
+
+2. Acesse a aplicação no seu navegador:
+
+    ```
+    http://localhost:3000
+    ```
